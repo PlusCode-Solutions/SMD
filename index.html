@@ -12,19 +12,23 @@
     content="agenda citas barbero, sistema de citas barberia costa rica, app para barberos, control de citas barberia, mejor software para barberias cr, smd citas, reservas online barberia" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="SMD Citas" />
-  <link rel="canonical" href="https://smdcitas.com" />
+  <link rel="canonical" href="https://smd-cr.vercel.app" />
   <!-- Open Graph -->
   <meta property="og:title" content="SMD Citas — Sistema de Citas para Barberías en Costa Rica" />
   <meta property="og:description"
     content="Reservas automáticas, recordatorios por email y estadísticas reales. Sistema hecho en Costa Rica, en colones, con soporte local por WhatsApp." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://smdcitas.com" />
+  <meta property="og:url" content="https://smd-cr.vercel.app" />
   <meta property="og:locale" content="es_CR" />
+  <meta property="og:image" content="https://smd-cr.vercel.app/img/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SMD Citas — Sistema de Citas para Barberías CR" />
   <meta name="twitter:description"
     content="El sistema de citas profesional hecho en Costa Rica para barberías. Sin comisiones, en colones." />
+  <meta name="twitter:image" content="https://smd-cr.vercel.app/img/logo.png" />
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
 {
@@ -34,7 +38,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "description": "Sistema de citas online para barberías en Costa Rica. Reservas automáticas, recordatorios por email, estadísticas de ingresos.",
-  "url": "https://smdcitas.com",
+  "url": "https://smd-cr.vercel.app",
   "offers": {
     "@type": "Offer",
     "price": "20000",
@@ -1545,6 +1549,230 @@
       }
     }
 
+    /* CUSTOMIZATION SECTION - LOGIN VIEWS */
+    .custom-sec {
+      background: #fdfeff;
+      padding: 160px 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ultra-subtle Mesh Gradient Background */
+    .custom-sec::before {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(24, 71, 241, 0.04) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+      animation: meshFlow 20s linear infinite;
+    }
+
+    .custom-sec::after {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      pointer-events: none;
+      animation: meshFlow 25s linear infinite reverse;
+    }
+
+    @keyframes meshFlow {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      50% {
+        transform: translate(30px, 40px) rotate(10deg);
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+    }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: 100px;
+      max-width: 1550px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .custom-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      perspective: 1500px;
+      position: relative;
+    }
+
+    /* Refined Floating Pills */
+    .feat-pill {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      z-index: 10;
+      pointer-events: none;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .pill-1 {
+      top: 15px;
+      left: -10px;
+      transform: rotate(-3deg);
+    }
+
+    .pill-2 {
+      bottom: 120px;
+      right: -20px;
+      transform: rotate(2deg);
+    }
+
+    .custom-item:hover .pill-1 {
+      transform: rotate(0deg) translateY(-8px) translateX(-5px) scale(1.05);
+    }
+
+    .custom-item:hover .pill-2 {
+      transform: rotate(0deg) translateY(-8px) translateX(5px) scale(1.05);
+    }
+
+    /* Device Frame - Dynamic Island Look */
+    .login-frame {
+      width: 100%;
+      border-radius: 40px;
+      border: 6px solid #0f172a;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08), 0 20px 40px rgba(0, 0, 0, 0.04);
+      margin-bottom: 36px;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #000;
+      aspect-ratio: 16/10;
+      position: relative;
+    }
+
+    /* Dynamic Island */
+    .login-frame::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 14px;
+      background: #0f172a;
+      border-radius: 100px;
+      z-index: 5;
+      transition: width 0.4s ease;
+    }
+
+    .custom-item:hover .login-frame::before {
+      width: 70px;
+    }
+
+    /* Screen Reflection Glow */
+    .login-frame::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%, rgba(255, 255, 255, 0.02) 100%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .login-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92) contrast(1.05);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .custom-item:hover .login-frame {
+      transform: translateY(-20px) rotateX(8deg) rotateY(-4deg);
+      box-shadow: 0 70px 120px rgba(24, 71, 241, 0.12);
+      border-color: #1e293b;
+    }
+
+    .custom-item:hover .login-frame img {
+      filter: brightness(1) contrast(1.1);
+      transform: scale(1.04);
+    }
+
+    .barber-info {
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .custom-item:hover .barber-info {
+      transform: translateY(-8px);
+    }
+
+    .barber-name {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 2.1rem;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .barber-tag {
+      font-size: 0.85rem;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      background: #eff6ff;
+      padding: 6px 20px;
+      border-radius: 100px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(24, 71, 241, 0.05);
+      border: 1px solid rgba(24, 71, 241, 0.05);
+    }
+
+    @media (max-width: 991px) {
+      .custom-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 120px;
+      }
+
+      .custom-sec {
+        padding: 120px 24px;
+      }
+
+      .pill-1,
+      .pill-2 {
+        display: none;
+      }
+    }
+
     /* TESTIMONIALS */
     .testi-sec {
       background: var(--sky2);
@@ -2309,6 +2537,59 @@
             <li><span class="pc-ck">✓</span>Soporte WhatsApp prioritario CR</li>
           </ul>
           <a href="#demo" class="pc-btn out">Contactar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMIZATION SECTION -->
+  <section class="sec custom-sec" id="personalizacion">
+    <div class="wrap">
+      <div class="rv" style="text-align:center">
+        <div class="stag" style="justify-content:center">Personalización Total</div>
+        <h2 style="text-align:center">Tu marca, tu <em>estilo</em></h2>
+        <p class="secp" style="margin-left:auto;margin-right:auto">El sistema se adapta visualmente a la identidad de tu
+          barbería. Tus clientes verán tu logo y tus colores desde el primer segundo.</p>
+      </div>
+
+      <div class="custom-grid">
+        <!-- Barbería Tony -->
+        <div class="custom-item rv">
+          <div class="feat-pill pill-1">🎨 Colores de marca</div>
+          <div class="feat-pill pill-2">👤 Login propio</div>
+          <div class="login-frame">
+            <img src="img/image copy 2.png" alt="Login Barbería Tony">
+          </div>
+          <div class="barber-info">
+            <div class="barber-name">Barbería Tony</div>
+            <div class="barber-tag">Clásico & Elegante</div>
+          </div>
+        </div>
+
+        <!-- Trenzas Studios -->
+        <div class="custom-item rv" style="transition-delay: 0.1s">
+          <div class="feat-pill pill-1">✨ Logo exclusivo</div>
+          <div class="feat-pill pill-2">📱 Web App</div>
+          <div class="login-frame">
+            <img src="img/image copy 3.png" alt="Login Trenzas Studios">
+          </div>
+          <div class="barber-info">
+            <div class="barber-name">Trenzas Studios</div>
+            <div class="barber-tag">Urbano & Moderno</div>
+          </div>
+        </div>
+
+        <!-- Barbería Mendez -->
+        <div class="custom-item rv" style="transition-delay: 0.2s">
+          <div class="feat-pill pill-1">🖼️ Fondo dinámico</div>
+          <div class="feat-pill pill-2">🔒 Acceso seguro</div>
+          <div class="login-frame">
+            <img src="img/image copy 4.png" alt="Login Barbería Mendez">
+          </div>
+          <div class="barber-info">
+            <div class="barber-name">Barbería Mendez</div>
+            <div class="barber-tag">Premium Experience</div>
+          </div>
         </div>
       </div>
     </div>

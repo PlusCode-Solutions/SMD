@@ -41,7 +41,7 @@
   "url": "https://smd-cr.vercel.app",
   "offers": {
     "@type": "Offer",
-    "price": "20000",
+    "price": "15000",
     "priceCurrency": "CRC"
   },
   "provider": {
@@ -175,6 +175,29 @@
       letter-spacing: -.04em
     }
 
+    .nav-logo-img {
+      display: block;
+      width: 74px;
+      height: 74px;
+      max-width: 95px;
+      max-height: 95px;
+      object-fit: contain;
+      border-radius: 50%;
+      padding: 5px;
+      margin: 0px 0px;
+      background: #ffffff;
+      border: 2px solid rgba(24, 71, 241, 0.35);
+      box-shadow: 0 5px 16px rgba(3, 18, 43, 0.16);
+    }
+
+    @media (max-width: 768px) {
+      .nav-logo-img {
+        width: 64px;
+        height: 64px;
+        margin: 8px 8px;
+      }
+    }
+
     .nav-mark {
       width: 52px;
       height: 34px;
@@ -227,6 +250,130 @@
     .nav-cta:hover {
       background: var(--blue2) !important;
       transform: translateY(-1px) !important
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+        z-index: 201;
+        position: relative;
+      }
+
+      .nav-inner {
+        position: relative;
+        z-index: 200;
+      }
+
+      nav {
+        z-index: 200;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 88px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        list-style: none;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        box-shadow: none;
+        z-index: 199;
+        padding: 0;
+      }
+
+      .nav-links.active {
+        max-height: 600px;
+        overflow: auto;
+        box-shadow: 0 16px 60px rgba(3, 18, 43, .15);
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--sky);
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 16px 24px;
+        color: var(--ink);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+        font-weight: 500;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-links a:active {
+        background: var(--sky2);
+      }
+
+      .nav-links a.nav-cta {
+        background: var(--blue) !important;
+        color: white !important;
+        border-radius: 8px !important;
+        margin: 12px 12px !important;
+        width: calc(100% - 24px) !important;
+        border: none !important;
+        padding: 14px 20px !important;
+        font-weight: 600 !important;
+        text-align: center;
+        display: block;
+      }
+
+      .nav-links a.nav-cta:active {
+        background: var(--blue2) !important;
+        transform: scale(0.98) !important;
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
     }
 
     /* HERO */
@@ -989,8 +1136,18 @@
       padding: 32px;
       transition: all .35s cubic-bezier(.16, 1, .3, 1);
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      animation: slideUpCard 0.6s ease-out forwards;
     }
+
+    .ftile:nth-child(1) { animation-delay: 0.05s; }
+    .ftile:nth-child(2) { animation-delay: 0.1s; }
+    .ftile:nth-child(3) { animation-delay: 0.15s; }
+    .ftile:nth-child(4) { animation-delay: 0.2s; }
+    .ftile:nth-child(5) { animation-delay: 0.25s; }
+    .ftile:nth-child(6) { animation-delay: 0.3s; }
+    .ftile:nth-child(7) { animation-delay: 0.35s; }
+    .ftile:nth-child(8) { animation-delay: 0.4s; }
 
     .ftile:hover {
       transform: translateY(-4px);
@@ -1275,8 +1432,33 @@
       padding: 36px 30px;
       position: relative;
       background: white;
+      overflow: hidden;
       transition: all .35s cubic-bezier(.16, 1, .3, 1);
-      box-shadow: var(--sh-xs)
+      box-shadow: var(--sh-xs);
+      animation: slideUpCard 0.6s ease-out forwards;
+    }
+
+    .pc:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .pc:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .pc:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .pc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      animation: shimmer 3s infinite;
     }
 
     .pc:hover {
@@ -1335,7 +1517,8 @@
     }
 
     .pc.pop .pc-price {
-      color: white
+      color: white;
+      font-size: 4.5rem;
     }
 
     .pc-price sup {
@@ -1594,6 +1777,157 @@
       100% {
         transform: translate(0, 0) rotate(0deg);
       }
+    }
+
+    @keyframes slideUpCard {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleInCard {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(24, 71, 241, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(24, 71, 241, 0.8);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    h1, h2 {
+      animation: fadeInText 0.8s ease-out forwards;
+    }
+
+    .hero-p {
+      animation: fadeInText 0.8s ease-out 0.2s forwards;
+    }
+
+    .stag {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .nav-logo-img:hover {
+      animation: glow 1.5s ease-in-out infinite;
+    }
+
+    .ew-dot {
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .pc-feats li {
+      animation: slideUpCard 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .pc-feats li:nth-child(1) { animation-delay: 0.4s; }
+    .pc-feats li:nth-child(2) { animation-delay: 0.5s; }
+    .pc-feats li:nth-child(3) { animation-delay: 0.6s; }
+    .pc-feats li:nth-child(4) { animation-delay: 0.7s; }
+    .pc-feats li:nth-child(5) { animation-delay: 0.8s; }
+    .pc-feats li:nth-child(6) { animation-delay: 0.9s; }
+
+    .nav-links a {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .pc-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pc-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .pc-btn:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    .hero-btns {
+      animation: slideUpCard 0.8s ease-out 0.4s forwards;
+      opacity: 0;
+    }
+
+    section {
+      overflow: hidden;
     }
 
     .custom-grid {
@@ -2049,6 +2383,18 @@
       text-decoration: none
     }
 
+    .foot-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      padding: 6px;
+      background: #ffffff;
+      border: 1px solid rgba(24, 71, 241, 0.35);
+      box-shadow: 0 3px 8px rgba(3, 18, 43, 0.12);
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
     .foot-mark {
       width: 52px;
       height: 34px;
@@ -2110,10 +2456,6 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none
-      }
-
       .sec,
       .hero,
       .cta-sec,
@@ -2146,16 +2488,19 @@
   <!-- NAV -->
   <nav id="mainnav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <div class="nav-mark">S<span style="color:var(--blue)">M</span>D</div>
-        <span></span>S<span style="color:var(--blue)">M</span>D Citas</span>
+      <a href="/" class="nav-logo" aria-label="Inicio">
+        <img src="/img/logosolo.png" alt="Logo SMD Citas" class="nav-logo-img" />
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navMenu">
         <li><a href="#feat">Funciones</a></li>
         <li><a href="#precios">Precios</a></li>
-        <li><a href="#testimonios">Opiniones</a></li>
         <li><a href="#demo" class="nav-cta">Demo gratis →</a></li>
       </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -2175,7 +2520,7 @@
           automáticos y estadísticas en tiempo real. <b>Sin pagar en dólares. Sin comisiones.</b></p>
         <div class="hero-btns">
           <a href="#demo" class="btn-p">
-            Probar gratis 7 días
+            1 mes gratis de prueba
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="white" stroke-width="1.6" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -2429,6 +2774,13 @@
           </div>
           <div class="f-num">07</div>
         </div>
+        <div class="ftile">
+          <div class="f-ic">🛠️</div>
+          <div class="f-ttl">Acompañamiento en la configuración</div>
+          <div class="f-dsc">Te guiamos paso a paso en la configuración del sistema y te capacitamos para que aproveches todas las funciones. Tu barbería lista para usar desde el primer día.
+          </div>
+          <div class="f-num">08</div>
+        </div>
       </div>
     </div>
   </section>
@@ -2493,9 +2845,9 @@
       </div>
       <div class="price-grid">
         <div class="pc pop rv">
-          <div class="pc-badge">⭐ MÁS POPULAR</div>
+          <div class="pc-badge">🔥 EN PROMOCIÓN</div>
           <div class="pc-plan">Solo Barbero</div>
-          <div class="pc-price"><sup>¢</sup>20,000</div>
+          <div class="pc-price"><sup>¢</sup>15,000 <span style="text-decoration: line-through; font-size: 0.7em; color: #999; margin-left: 8px;">¢20,000</span></div>
           <div class="pc-per">por mes · 1 barbero</div>
           <div class="pc-sep"></div>
           <ul class="pc-feats">
@@ -2506,7 +2858,7 @@
             <li><span class="pc-ck">✓</span>Servicios con duración</li>
             <li><span class="pc-ck">✓</span>URL y logo personalizados</li>
           </ul>
-          <a href="#demo" class="pc-btn fill">Empezar gratis 7 días</a>
+          <a href="#demo" class="pc-btn fill">Empezar gratis 1 mes</a>
         </div>
         <div class="pc rv">
           <div class="pc-plan">Pro</div>
@@ -2643,7 +2995,7 @@
     <div class="wrap rv" style="position:relative;z-index:1">
       <div class="stag">Empezá hoy</div>
       <h2>Tu barbería merece<br>un sistema <em>profesional</em></h2>
-      <p class="secp">7 días gratis. Sin tarjeta. Sin compromiso.<br>Soporte real en Costa Rica por WhatsApp en
+      <p class="secp">1 mes gratis. Sin tarjeta. Sin compromiso.<br>Soporte real en Costa Rica por WhatsApp en
         español.
       </p>
       <div class="cta-btns">
@@ -2689,8 +3041,8 @@
   <footer>
     <div class="foot-in">
       <a href="#" class="foot-brand">
-        <div class="foot-mark">S<span style="color:var(--blue)">M</span>D</div>
-        <span>S<span style="color:var(--blue)">M</span>D Citas</span>
+        <img src="/img/logosolo.png" alt="Logo SMD Citas" class="foot-logo" />
+
       </a>
       <p class="foot-copy">© 2026 S<span style="color:#1847F1 !important">M</span>D Citas</p>
       <div class="foot-links"><a href="#">Términos</a><a href="#">Privacidad</a><a href="#demo">Contacto</a></div>
@@ -2706,6 +3058,27 @@
 
     // Nav stuck
     window.addEventListener('scroll', () => document.getElementById('mainnav').classList.toggle('stuck', scrollY > 20), { passive: true });
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close menu when clicking on a link
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
 
     // Reveal on scroll
     const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }) }, { threshold: .07, rootMargin: '0px 0px -20px 0px' });
